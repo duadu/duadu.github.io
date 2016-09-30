@@ -3,45 +3,134 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
+    <link rel="stylesheet" type="text/css" href="stylesheets/reset.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_1475217331_8359563.css">
     <title>Duadu.GitHub.io by duadu</title>
   </head>
   <body>
-    
+    <textarea id="lrc_content" name="textfield" cols="70" rows="10" style="display:none;">
+      [00:00.58]丑八怪 - 薛之谦
+      [00:02.90]作词 : 甘世佳
+      [00:05.34]作曲 : 李荣浩
+      [00:19.97]如果世界漆黑 其实我很美
+      [00:23.46]在爱情里面进退 最多被消费
+      [00:27.33]无关痛痒的是非
+      [00:29.01]又怎么不对 无所谓
+      [00:35.30]如果像你一样 总有人赞美
+      [00:38.94]围绕着我的卑微 也许能消退
+      [00:42.92]其实我并不在意 有很多机会
+      [00:46.02]像巨人一样的无畏
+      [00:49.10]放纵我心里的鬼
+      [00:50.57]可是我不配
+      [00:54.18]丑八怪 能否别把灯打开
+      [01:01.59]我要的爱 出没在漆黑一片的舞台
+      [01:09.20]丑八怪 在这暧昧的时代
+      [01:17.18]我的存在 像意外
+      [01:37.42]有人用一滴泪 会红颜祸水
+      [01:41.07]有人丢掉称谓 什么也不会
+      [01:44.81]只要你足够虚伪
+      [01:46.40]就不怕魔鬼 对不对
+      [01:52.74]如果剧本写好 谁比谁高贵
+      [01:56.42]我只能沉默以对 美丽本无罪
+      [02:00.13]当欲望开始贪杯 有更多机会
+      [02:03.45]像尘埃一样的无畏
+      [02:06.54]化成灰谁认得谁管他配不配
+      [02:11.59]丑八怪 能否别把灯打开
+      [02:19.09]我要的爱 出没在漆黑一片的舞台
+      [02:26.59]丑八怪 在这暧昧的时代
+      [02:34.61]我的存在 不意外
+      [03:01.45]丑八怪 其实见多就不怪
+      [03:09.45]放肆去high 用力踩
+      [03:13.90]那不堪一击的洁白
+      [03:16.88]丑八怪 这是我们的时代
+      [03:24.87]我不存在 才意外
+    </textarea>
+    <img src="images/pre_bg.jpg " alt="" class="bgImg">
+    <div class="music_box">
+      <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+      <div id="jp_container_1" class="jp-audio">
+        <div class="jp-type-single">
+          <div class="jp-gui jp-interface">
+            <ul class="jp-controls">
+              <li><a href="javascript:;" class="jp-play play" tabindex="1"></a></li>
+              <li><a href="javascript:;" class="jp-pause pause" tabindex="1"></a></li>
+              <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+              <li><a href="javascript:;" class="jp-mute iconfont" tabindex="1" title="mute">&#xe601;</a></li>
+              <li><a href="javascript:;" class="jp-unmute iconfont" tabindex="1" title="unmute">&#xe602;</a></li>
+              <li><a href="javascript:;" class="jp-volume-max iconfont" tabindex="1" title="max volume">&#xe603;</a></li>
+            </ul>
+            <div class="jp-progress">
+              <div class="jp-seek-bar">
+                <div class="jp-play-bar"></div>
+              </div>
+            </div>
+            <div class="jp-volume-bar">
+              <div class="jp-volume-bar-value"></div>
+            </div>
+            <div class="jp-time-holder">
+              <div class="jp-current-time"></div>
+              <div class="jp-duration"></div>
+              <ul class="jp-toggles">
+                <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+                <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp-title"><ul><li>duadu</li></ul></div>
+          <div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to either update your browser to a recent version or update your Flash plugin. </div>
+        </div>
+        <ul id="middlePlay">
+          <li><a href="javascript:;" class="jp-play playMusic" tabindex="1"></a></li>
+          <li><a href="javascript:;" class="jp-pause pauseMusic" tabindex="1"></a></li>
+        </ul>
+      </div>
+      <div class="content"><ul id="lrc_list"><li></li></ul></div>
+    </div>
   </body>
-  <script type="text/javascript">
-    window.onload = function () {
-      new Audio().init();
-    }
-    var Audio = function () {
-      var that = this;
-    }
-    Audio.prototype = {
-      init: function () {
-        var that = this;
-        var songUrl = 'images' + '/' + 'song' + '/';
-        that.getLyric(songUrl + 'a.lrc');
-      },
-      getLyric: function (url) {
-        var that = this,
-            //建立一个XMLHttpRequest请求
-            request = new XMLHttpRequest();
-        //配置, url为歌词地址，比如：'./content/songs/foo.lrc'
-        request.open('GET', url, true);
-        //因为我们需要的歌词是纯文本形式的，所以设置返回类型为文本
-        request.responseType = 'text';
-        //一旦请求成功，但得到了想要的歌词了
-        request.onload = function() {
-            //这里获得歌词文件
-            var lyric = request.response;
-            console.log(lyric);
-        };
-        //向服务器发送请求
-        request.send();
-      }
-    }
+  <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.jplayer.js"></script>
+  <script type="text/javascript" src="js/lrc.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+      // MP3播放
+      $("#jquery_jplayer_1").jPlayer({
+        ready: function (event) {
+          $(this).jPlayer("setMedia", {
+            mp3:"images/song/a.mp3" 
+          });
+        },
+        timeupdate: function(event) {
+          if(event.jPlayer.status.currentTime==0){
+            time = "";
+          }else {
+            time = event.jPlayer.status.currentTime;
+          }
+        },
+        play: function(event) {
+          $.lrc.start($('#lrc_content').val(), function() {
+            return time;
+          });
+        },
+        // ended:function(event){
+        //   $("#lrc_list").removeAttr("style").html("<li>¸èÇú²¥·ÅÍê±Ï£¡</li>");
+        // },
+        swfPath: "/js",     
+        solution:"html, flash", 
+        supplied: "mp3",    
+        wmode: "window"
+      });
+      ;(function () {
+        divCenter ($('.bgImg'), - $('.bgImg').width() / 2);
+        divCenter ($('.content'), - 232 / 2);
+        divCenter ($('#middlePlay'), - $('#middlePlay').width() / 2);
+        // 背景图居中
+        function divCenter (dom, marginLeft) {
+          dom.css({
+            'marginLeft': marginLeft
+          });
+        }
+      })();
+    });
   </script>
 </html>
