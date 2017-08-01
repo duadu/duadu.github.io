@@ -21,6 +21,7 @@
             text-decoration: none;
             border: 0;
             outline: 0;
+            height: 100%;
         }
         #main {
             max-width: 640px;
@@ -28,15 +29,15 @@
             height: 100%;
             margin: 0 auto;
         }
-        #main h3{
+        /*#main h3{
             text-align: center;
             padding: 10px 0;
-        }
+        }*/
     </style>
 </head>
 <body>
     <div id="main">
-        <h3 id="title">旋转查看效果</h3>
+        <!-- <h3 id="title">旋转查看效果</h3> -->
         <div id="container"></div>
     </div>
 <script src="js/three.min.js"></script>
@@ -62,7 +63,7 @@ window.onload = function () {
             navbar: true,
             size: {
                 width: '100%',
-                height: canvasHeight
+                height: '100%'
             }
         });
     }
