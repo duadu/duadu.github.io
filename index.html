@@ -12,60 +12,46 @@
     <meta name="viewport" content="width=640, target-densitydpi=device-dpi, user-scalable=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <style>
-        body {
-            background-color: #000000;
+        * {
             margin: 0;
-            cursor: move;
-            overflow: hidden;
-        }
-        .surface { width: 1026px; height: 1026px; background-size: cover; position: absolute; }
-        .surface .bg { position: absolute; width: 1026px; height: 1026px; }
-    </style>
-</head>
-<body>
- <style>
-        ul, li {
+            padding: 0;
             list-style: none;
-            line-height: 0px;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: 0;
+            outline: 0;
         }
-        body, div, ul, li, img, p, a, h1, h2, h3 {
-            margin: 0px;
-            padding: 0px;
-            border: 0px;
-        }
-        html, body {
-            background: #000;
-            color: #fff;
-            font-family: "微软雅黑", "黑体", "宋体", Helvetica, Verdana, sans-serif;
-            font-size: 10px;
-        }
-        #tip {
-            font-size: 60px;
+        #main {
+            max-width: 640px;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
         }
     </style>
-
 </head>
-
 <body>
-<p id="tip"></p>
-
+    <div id="main">
+        <div id="container"></div>
+    </div>
 <script src="js/three.min.js"></script>
-<script src="js/three.min.js"></script>
-<script src="js/orienter.min.js"></script>
+<script src="js/photo-sphere-viewer.min.js"></script>
 <script>
-    var o = new Orienter();
-    var tip = document.getElementById('tip');
-    o.onOrient = function (obj) {
-        tip.innerHTML =
-                'alpha:' + obj.a +
-                '<br>' + 'beta:' + obj.b +
-                '<br>' + 'gamma:' + obj.g +
-                '<br>' + 'longitude:' + obj.lon +
-                '<br>' + 'latitude:' + obj.lat +
-                '<br>' + 'direction:' + obj.dir;
-    };
-    o.init();
+window.onload = function () {
+    loadingAllImg();
+    function loadingAllImg () {
+        var div = document.getElementById('container');
+        var PSV = new PhotoSphereViewer({
+            panorama: 'images/image.jpg', // 全景图的完整路径
+            container: div, // 放全景图的元素
+            time_anim: false,  // 可选，默认值为2000，全景图在time_anim毫秒后会自动进行动画
+            navbar: true,
+            size: {
+                width: '100%',
+                height: '100%'
+            }
+        });
+    }
+};
 </script>
-<!-- <script src="js/index.js"></script> -->
 </body>
 </html>
