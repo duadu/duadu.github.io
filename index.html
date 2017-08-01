@@ -44,16 +44,16 @@
 <script src="js/photo-sphere-viewer.min.js"></script>
 <script>
 window.onload = function () {
-    getTitleHeight();
+    // getTitleHeight();
     loadingAllImg();
     var canvasHeight;
-    function getTitleHeight(){
-        var title=document.getElementById('title');
-        console.log(window.getComputedStyle(title).height);
-        var titleHeight=parseFloat(getComputedStyle(title).height);
-        var maxHeight=window.innerHeight;
-        canvasHeight=parseFloat(maxHeight-titleHeight)+'px';
-    }
+    // function getTitleHeight(){
+    //     var title=document.getElementById('title');
+    //     console.log(window.getComputedStyle(title).height);
+    //     var titleHeight=parseFloat(getComputedStyle(title).height);
+    //     var maxHeight=window.innerHeight;
+    //     canvasHeight=parseFloat(maxHeight-titleHeight)+'px';
+    // }
     function loadingAllImg () {
         var div = document.getElementById('container');
         var PSV = new PhotoSphereViewer({
