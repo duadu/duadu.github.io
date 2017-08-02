@@ -46,7 +46,7 @@ window.onload = function () {
     loadingAllImg();
     console.log($(window).height())
     function loadingAllImg () {
-        var div = $('#container');
+        var div = document.getElementById('container');
         var PSV = new PhotoSphereViewer({
             panorama: 'images/image.jpg', // 全景图的完整路径
             container: div, // 放全景图的元素
