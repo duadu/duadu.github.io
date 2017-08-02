@@ -62,7 +62,7 @@ window.onload = function () {
             navbar: true,
             size: {
                 width: '100%',
-                height: $(window).css('height')
+                height: window.getComputedStyle(title).height
             }
         });
     }
