@@ -44,22 +44,17 @@
 <script src="js/photo-sphere-viewer.js"></script>
 <script>
 window.onload = function () {
-    loadingAllImg();
-    console.log($(window).height())
-    function loadingAllImg () {
-        var div = document.getElementById('container');
-        var PSV = new PhotoSphereViewer({
-            panorama: 'images/image.jpg', // 全景图的完整路径
-            container: div, // 放全景图的元素
-            time_anim: 0,  // 可选，默认值为2000，全景图在time_anim毫秒后会自动进行动画
-            navbar: ['autorotate', 'zoom', 'caption', 'gyroscope', 'fullscreen'],
-            gyroscope: true,
-            size: {
-                width: '100%',
-                height: $(window).height()
-            }
-        });
-    }
+    var PSV = new PhotoSphereViewer({
+        panorama: 'images/image.jpg', // 全景图的完整路径
+        container: document.getElementById('container'), // 放全景图的元素
+        time_anim: 0,  // 可选，默认值为2000，全景图在time_anim毫秒后会自动进行动画
+        navbar: ['autorotate', 'zoom', 'caption', 'gyroscope', 'fullscreen'],
+        gyroscope: true,
+        size: {
+            width: '100%',
+            height: $(window).height()
+        }
+    });
 };
 </script>
 </body>
