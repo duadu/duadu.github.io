@@ -95,8 +95,8 @@
       url: 'Bryce-Canyon-National-Park-Mark-Doliner.jpg',
       desc: 'Bryce Canyon National Park <b>&copy; Mark Doliner</b>',
       target: {
-        longitude: 3.848,
-        latitude: -0.244
+        longitude: 3.848,   // 经度
+        latitude: -0.244    // 维度
       }
     }, {
       url: 'Bryce-Canyon-By-Jess-Beauchemin.jpg',
@@ -109,50 +109,20 @@
   ];
 
   var PSV = new PhotoSphereViewer({
-    container: 'photosphere',
-    panorama: panos[0].url,
-    caption: panos[0].desc,
-    loading_img: 'photosphere-logo.gif',
-    longitude_range: [-7 * Math.PI / 8, 7 * Math.PI / 8],
-    latitude_range: [-3 * Math.PI / 4, 3 * Math.PI / 4],
-    anim_speed: '-2rpm',
-    default_fov: 50,
-    fisheye: true,
-    move_speed: 1.1,
-    time_anim: false,
-    gyroscope: true,
+    container: 'photosphere',   // 放置全景图的容器(必选)
+    panorama: panos[0].url,   // 全景图的路径(必选)
+    caption: panos[0].desc,    // 全景图的描述
+    loading_img: 'photosphere-logo.gif',   // (默认值 为null)loading图片的路径
+    longitude_range: [-7 * Math.PI / 8, 7 * Math.PI / 8],   // 看得到的经度范围
+    latitude_range: [-3 * Math.PI / 4, 3 * Math.PI / 4],    // 看得到的纬度范围
+    anim_speed: '-2rpm',  // rpm:每分钟多少转   // (默认值为2rpm)动画每秒/分钟多少的速度 
+    default_fov: 50,   // 默认的观察区域
+    fisheye: true,   // 是否开启鱼眼效果
+    move_speed: 1.1,   // 移动速度
+    time_anim: false,   // (默认值为2000)全景图在time_anim毫秒后会自动进行动画。(设置为false禁用它)
+    gyroscope: true,   // 当设备支持时，启用陀螺仪导航并添加导航栏按钮 
     //webgl: true,
-    navbar: [
-      'autorotate', 'zoom', 'download', 'markers',
-      'spacer-1',
-      {
-        title: 'Change image',
-        className: 'custom-button',
-        content: '↻',
-        onClick: (function() {
-          var i = 0;
-
-          return function() {
-            i = 1 - i;
-            PSV.clearMarkers();
-
-            PSV.setPanorama(panos[i].url, panos[i].target, true)
-              .then(function() {
-                PSV.setCaption(panos[i].desc);
-              });
-          }
-        }())
-      },
-      {
-        id: 'disabled',
-        title: 'This button is disabled',
-        content: '❌',
-        enabled: false
-      },
-      'caption',
-      'gyroscope',
-      'fullscreen'
-    ],
+    navbar: true,
     markers: (function() {
       var a = [];
       for (var i = 0; i < Math.PI * 2; i += Math.PI / 4) {
