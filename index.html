@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>360全景图</title>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <!-- 启用webAPP全屏模式-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 隐藏状态栏或者设置状态栏的颜色-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 禁止缓存访问页面-->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="applicable-device" content="mobile">
+    <link rel="stylesheet" href="css/photo-sphere-viewer.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: 0;
+            outline: 0;
+        }
+        #main {
+            max-width: 640px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        /*#main h3{
+            text-align: center;
+            padding: 10px 0;
+        }*/
+    </style>
+</head>
+<body>
+    <div id="main">
+        <!-- <h3 id="title">旋转查看效果</h3> -->
+        <div id="container"></div>
+    </div>
+<script src="js/zepto.min.js"></script>
+<script src="js/three.min.js"></script>
+<script src="../dist/photo-sphere-viewer.js"></script>
+<script>
+window.onload = function () {
+    var PSV = new PhotoSphereViewer({
+        panorama: 'images/image.jpg', // 全景图的完整路径
+        container: document.getElementById('container'), // 放全景图的元素
+        time_anim: 0,  // 可选，默认值为2000，全景图在time_anim毫秒后会自动进行动画
+        navbar: ['autorotate', 'zoom', 'caption', 'gyroscope', 'fullscreen'],
+        gyroscope: true,
+        size: {
+            width: '100%',
+            height: $(window).height()
+        }
+    });
+};
+</script>
+</body>
+</html>
