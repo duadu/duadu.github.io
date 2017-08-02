@@ -122,7 +122,37 @@
     time_anim: false,   // (默认值为2000)全景图在time_anim毫秒后会自动进行动画。(设置为false禁用它)
     gyroscope: true,   // 当设备支持时，启用陀螺仪导航并添加导航栏按钮 
     //webgl: true,
-    navbar: true,
+    navbar: [
+      'autorotate', 'zoom', 'download', 'markers',
+      'spacer-1',
+      {
+        title: 'Change image',
+        className: 'custom-button',
+        content: 'change',
+        onClick: (function() {
+          var i = 0;
+
+          return function() {
+            i = 1 - i;
+            PSV.clearMarkers();
+            // 加载一个新的全景图
+            PSV.setPanorama(panos[i].url, panos[i].target, true)
+              .then(function() {
+                PSV.setCaption(panos[i].desc);
+              });
+          }
+        }())
+      },
+      {
+        id: 'disabled',
+        title: 'This button is disabled',
+        content: 'disabled',
+        enabled: false
+      },
+      'caption',
+      'gyroscope',
+      'fullscreen'
+    ],
     markers: (function() {
       var a = [];
       for (var i = 0; i < Math.PI * 2; i += Math.PI / 4) {
