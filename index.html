@@ -21,6 +21,7 @@
             text-decoration: none;
             border: 0;
             outline: 0;
+            height: 100%;
         }
         #main {
             max-width: 640px;
@@ -53,6 +54,7 @@ window.onload = function () {
     //     var maxHeight=window.innerHeight;
     //     canvasHeight=parseFloat(maxHeight-titleHeight)+'px';
     // }
+    console.log(document.body.clientHeight)
     function loadingAllImg () {
         var div = document.getElementById('container');
         var PSV = new PhotoSphereViewer({
@@ -62,7 +64,7 @@ window.onload = function () {
             navbar: true,
             size: {
                 width: '100%',
-                height: window.screen.height
+                height: document.body.clientHeight
             }
         });
     }
