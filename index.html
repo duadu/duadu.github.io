@@ -40,23 +40,15 @@
         <!-- <h3 id="title">旋转查看效果</h3> -->
         <div id="container"></div>
     </div>
+<script src="js/zepto.min.js"></script>
 <script src="js/three.min.js"></script>
 <script src="js/photo-sphere-viewer.min.js"></script>
 <script>
 window.onload = function () {
-    // getTitleHeight();
     loadingAllImg();
-    var canvasHeight;
-    // function getTitleHeight(){
-    //     var title=document.getElementById('title');
-    //     console.log(window.getComputedStyle(title).height);
-    //     var titleHeight=parseFloat(getComputedStyle(title).height);
-    //     var maxHeight=window.innerHeight;
-    //     canvasHeight=parseFloat(maxHeight-titleHeight)+'px';
-    // }
-    console.log(document.body.clientHeight)
+    console.log($(window).height())
     function loadingAllImg () {
-        var div = document.getElementById('container');
+        var div = $('#container');
         var PSV = new PhotoSphereViewer({
             panorama: 'images/image.jpg', // 全景图的完整路径
             container: div, // 放全景图的元素
@@ -64,7 +56,7 @@ window.onload = function () {
             navbar: true,
             size: {
                 width: '100%',
-                height: document.body.clientHeight
+                height: $(window).height()
             }
         });
     }
