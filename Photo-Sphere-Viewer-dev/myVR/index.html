@@ -39,21 +39,16 @@
         <!-- <h3 id="title">旋转查看效果</h3> -->
         <div id="container"></div>
     </div>
-<script src="../bower_components/three.js/three.js"></script>
-<script src="../bower_components/D.js/lib/D.js"></script>
-<script src="../bower_components/uevent/uevent.js"></script>
-<script src="../bower_components/doT/doT.js"></script>
-<script src="../bower_components/three.js-examples/examples/js/renderers/CanvasRenderer.js"></script>
-<script src="../bower_components/three.js-examples/examples/js/renderers/Projector.js"></script>
-<script src="../bower_components/three.js-examples/examples/js/controls/DeviceOrientationControls.js"></script>
-<script src="../dist/photo-sphere-viewer.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/three.min.js"></script>
+<script src="js/photo-sphere-viewer.js"></script>
 <script>
 window.onload = function () {
     var PSV = new PhotoSphereViewer({
         panorama: 'images/image.jpg', // 全景图的完整路径
         container: document.getElementById('container'), // 放全景图的元素
         time_anim: 0,  // 可选，默认值为2000，全景图在time_anim毫秒后会自动进行动画
-        navbar: ['autorotate', 'zoom', 'caption', 'gyroscope', 'fullscreen'],
+        navbar: false,
         gyroscope: true,
         size: {
             width: '100%',
