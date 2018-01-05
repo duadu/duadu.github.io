@@ -114,7 +114,7 @@ function drawPannel(){//画出方格，每个方格放一个地鼠并且隐藏
 		for(var j=0;j<cubes;j++){
 			ctx.fillRect(i*areaSize,j*areaSize,cubeSize,cubeSize);//画一个方格
 			var img = new Image();
-			var imgIndex = Math.floor(Math.random());
+			var imgIndex = Math.round(Math.random());
 			img.src = 'imgs/' + imgIndex + '.jpg';
 			img.style.left = i*33.33 + "%";
 			img.style.top = j*0.3333*canvas.clientHeight + "px";
@@ -186,7 +186,7 @@ function lose(){//如果输了
 	clearTimeout(t2);
 
 	setTimeout(function(){//延时一点
-		alert("您输了，共打了"+points+"只地鼠。");
+		alert("您输了，共戳了"+points+"只天天。");
 		for(var i=0;i<rats.length;i++){
 			rats[i].classList.remove("active");//全部地鼠隐藏
 		}
