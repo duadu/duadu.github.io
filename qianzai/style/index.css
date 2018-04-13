@@ -4,6 +4,7 @@ html, body {
   padding: 0;
   background-color: #181818;
   font-style: '微软雅黑';
+  overflow: hidden;
 }
 p {
 	margin: 0;
@@ -18,6 +19,7 @@ ul, ol, li {
 
 #wrap {
 	height: 100%;
+	/*overflow: hidden;*/
 }
 #wrap img {
   box-sizing: border-box;
@@ -70,6 +72,14 @@ ul, ol, li {
 	top: 2.9427rem;
 	left: 0.5208rem;
 	width: 0.1302rem;
+}
+.nav_text {
+	position: absolute;
+	top: 3.5427rem;
+	left: 0.32rem;
+	color: #c5341d;
+	font-size: 16px;
+	transform:rotate(90deg); 
 }
 .title {
 	position: absolute;
@@ -145,10 +155,14 @@ ul, ol, li {
 	font-size: 14px;
 }
 .section4 {
-	height: auto !important;
+	
 }
 .section4 img {
 	width: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 }
 .section7_title {
 	text-align: center;
@@ -166,9 +180,9 @@ ul, ol, li {
 	font-size: 14px;
 }
 .section5_photos {
-	width: 6.0104rem;
-	height: 4.5469rem;
-	margin: 0.888rem auto 0;
+	width: 5.0104rem;
+	height: 2.8rem;
+	margin: 0.4rem auto 0;
 }
 .section5_photos li {
 	display: inline-block;
@@ -200,4 +214,14 @@ ul, ol, li {
 }
 .section7_text {
 	color: #fff;
+	margin-top: 0.1562rem;
+}
+.section8 {
+	background: #fff;
+}
+.section8_chineseMap {
+	position: absolute;
+	top: 1.417rem;
+	left: 1.3333rem;
+	width: 2.6614rem;
 }
