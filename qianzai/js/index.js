@@ -65,6 +65,10 @@ define(function (require, exports, module) {
         });
       }
     }
+    $("body").on("swipeDown",function(){
+      _scrollPage();
+    });
+    
     // 案例展示
     // $('.section5_photo').click(function () {
 
