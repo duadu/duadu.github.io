@@ -17,9 +17,8 @@ ul, ol, li {
 	font-size: 0;
 }
 
-#wrap {
+#wrap, #content {
 	height: 100%;
-	/*overflow: hidden;*/
 }
 #wrap img {
   box-sizing: border-box;

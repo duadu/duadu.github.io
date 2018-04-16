@@ -56,18 +56,18 @@ define(function (require, exports, module) {
     function _scrollPage () {
       canScroll = false;
       if (_prefix($('#wrap'))) {
-        $('#wrap').css(_prefix($('#wrap')) + 'transition', 'all 500ms ease');
-        $('#wrap').css(_prefix($('#wrap')) + 'transform', 'translateY(-' + index * screntHeight + 'px)');
+        $('#content').css(_prefix($('#wrap')) + 'transition', 'all 500ms ease');
+        $('#content').css(_prefix($('#wrap')) + 'transform', 'translate3d(0, -' + index * screntHeight + 'px, 0)');
       } else {
         var animateCss = {top: - dest.top};
-        $('#wrap').animate(animateCss, 500, function () {
+        $('#content').animate(animateCss, 500, function () {
           canScroll = true;
         });
       }
     }
     // 案例展示
     // $('.section5_photo').click(function () {
-      
+
     // });
   }
 	exports.indexJS = init;
