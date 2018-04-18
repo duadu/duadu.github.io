@@ -68,6 +68,15 @@ define(function (require, exports, module) {
     $("body").on("swipeDown",function(){
       _scrollPage();
     });
+
+    // 鼠标移动事件
+    $(document).mousemove(function (e) {
+      $('.section1:hover .circle').css({
+        top: e.pageY,
+        left: e.pageX
+      });
+    });
+
     
     // 案例展示
     // $('.section5_photo').click(function () {
