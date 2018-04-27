@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>自动刷新</title>
+  <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+  }
+  #info {
+    position: absolute;
+    width: 1000px;
+    height: 100px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    color: #333;
+    background: #fff;
+    opacity: 1;
+    border-radius: 10px;
+    padding: 20px;
+    /*box-shadow: 0px 0px 50px #f2f2f2;*/
+  }
+  .setInt, .content {
+    line-height: 50px;
+  }
+  input {
+    border-radius: 3px;
+    width: 100px;
+    height: 28px;
+    border: 1px solid #cecece;
+    padding: 0 10px;
+    margin: 0 10px;
+  }
+  button {
+    border-radius: 15px;
+    background: #333;
+    width: 80px;
+    line-height: 30px;
+    border: 0;
+    color: #fff;
+    margin-left: 10px;
+  }
+  </style>
+</head>
+<body>
+  <iframe id="myframe" width="100%" height="500px" frameBorder="0" src="https://www.mgtv.com/l/100017744/4252793.html" scrolling="no" style="opacity: 0; position: absolute; left: 0;"></iframe>
+  <div class="background"></div>
+  <div id="info">
+    <div class="content">
+      <span>正在播放：</span>
+      <span id="key">《快乐大本营》周边社：胡一天撩妹技能大放送 酥炸啦！</span>
+    </div>
+    <div class="setInt">
+      <span>每隔<input id="time" type="text" value="9" />秒跳转到下一个视频</span>
+      <button id="start">重置刷新</button>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      var urls = [{
+        key: '走路带风的胡一天版花无缺公子',
+        url: 'https://www.mgtv.com/l/100017744/4356504.html'
+      }, {
+        key: '《快乐大本营》周边社：胡一天撩妹技能大放送 酥炸啦！',
+        url: 'https://www.mgtv.com/l/100017744/4252793.html'
+      }, {
+        key: '胡一天读信翻牌实力宠粉 喊话粉丝多画了一只耳朵',
+        url: 'https://www.mgtv.com/l/100017744/4323914.html'
+      }];
+
+      var timer;
+      function refresh () {
+        var i = 0;
+        timer = setInterval(function () {
+          $('#key').html(urls[i].key);
+          $('#myframe').html(urls[i].url).attr('src', urls[i].url);
+          if (i == urls.length - 1) {
+            i = 0;
+          } else {
+            i++;
+          }
+        }, Number($('#time').val()) * 1000);
+      }
+      refresh();
+      $('#start').click(function () {
+        refresh ();
+      });
+      $('#end').click(function () {
+        window.clearInterval(timer);
+      });
+
+      // 定时清浏览器缓存
+      var timerCache = setInterval(function () {
+        $('body').load(function () {
+          javascript:document.yourFormName.reset();
+        });
+      }, 10 * 60 * 1000);   // 十分钟清一次缓存
+
+    });
+  </script>
+</body>
+</html>
