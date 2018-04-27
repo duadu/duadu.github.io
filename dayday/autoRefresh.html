@@ -55,12 +55,12 @@
   </style>
 </head>
 <body>
-  <iframe id="myframe" width="100%" height="500px" frameBorder="0" src="https://www.mgtv.com/l/100017744/4252793.html" scrolling="no" style="opacity: 0; position: absolute; left: 0;"></iframe>
+  <iframe id="myframe" width="100%" height="500px" frameBorder="0" src="https://www.mgtv.com/l/100017744/4323914.html" scrolling="no" style="opacity: 0; position: absolute; left: 0;"></iframe>
   <div class="background"></div>
   <div id="info">
     <div class="content">
       <span>正在播放：</span>
-      <span id="key">《快乐大本营》周边社：胡一天撩妹技能大放送 酥炸啦！</span>
+      <span id="key">胡一天读信翻牌实力宠粉 喊话粉丝多画了一只耳朵</span>
     </div>
     <div class="setInt">
       <span>每隔<input id="time" type="text" value="9" />秒跳转到下一个视频</span>
@@ -109,6 +109,41 @@
         });
       }, 10 * 60 * 1000);   // 十分钟清一次缓存
 
+      function flashChecker() {  
+        var hasFlash = 0;　　　　 //是否安装了flash    
+        var flashVersion = 0;　　 //flash版本    
+        
+        if(document.all) {  
+          var swf = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');  
+          if(swf) {  
+            hasFlash = 1;  
+            VSwf = swf.GetVariable("$version");  
+            flashVersion = parseInt(VSwf.split(" ")[1].split(",")[0]);  
+          }  
+        } else {  
+          if(navigator.plugins && navigator.plugins.length > 0) {  
+            var swf = navigator.plugins["Shockwave Flash"];  
+            if(swf) {  
+              hasFlash = 1;  
+              var words = swf.description.split(" ");  
+              for(var i = 0; i < words.length; ++i) {  
+                if(isNaN(parseInt(words[i]))) continue;  
+                flashVersion = parseInt(words[i]);  
+              }  
+            }  
+          }  
+        }  
+        return { f: hasFlash, v: flashVersion };  
+      }  
+        
+      var fls = flashChecker();  
+      var s = "";
+      console.log(fls.f);
+      if(!fls.f) {  
+        if(confirm("您的浏览器未安装Flash插件，现在安装？")) {  
+          window.location.href = "http://get.adobe.com/cn/flashplayer/";  
+        }  
+      }  
     });
   </script>
 </body>
