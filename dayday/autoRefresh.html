@@ -10,6 +10,7 @@
     height: 100%;
   }
   .background {
+    display: none;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -55,12 +56,12 @@
   </style>
 </head>
 <body>
-  <iframe id="myframe" width="100%" height="500px" frameBorder="0" src="https://www.mgtv.com/l/100017744/4323914.html" scrolling="no" style="opacity: 0; position: absolute; left: 0;"></iframe>
+  <iframe id="myframe" width="100%" height="500px" frameBorder="0" src="https://www.mgtv.com/l/100017744/4255321.html" scrolling="no" style="position: absolute; left: 0;"></iframe>
   <div class="background"></div>
   <div id="info">
     <div class="content">
       <span>正在播放：</span>
-      <span id="key">胡一天读信翻牌实力宠粉 喊话粉丝多画了一只耳朵</span>
+      <span id="key">胡一天cut：现场跟“新女友”还原《小美好》</span>
     </div>
     <div class="setInt">
       <span>每隔<input id="time" type="text" value="9" />秒跳转到下一个视频</span>
@@ -82,7 +83,7 @@
       }];
 
       var timer;
-      function refresh () {
+      function refresh (time) {
         var i = 0;
         timer = setInterval(function () {
           $('#key').html(urls[i].key);
@@ -92,11 +93,13 @@
           } else {
             i++;
           }
-        }, Number($('#time').val()) * 1000);
+        }, time);
       }
-      refresh();
+      refresh(9000);
       $('#start').click(function () {
-        refresh ();
+        console.log(Number($('#time').val()) * 1000)
+        window.clearInterval(timer);
+        refresh (Number($('#time').val()) * 1000);
       });
       $('#end').click(function () {
         window.clearInterval(timer);
