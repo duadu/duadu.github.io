@@ -10,7 +10,7 @@
     height: 100%;
   }
   .background {
-    /*display: none;*/
+    display: none;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -56,12 +56,12 @@
   </style>
 </head>
 <body>
-  <iframe id="myframe" width="100%" height="500px" frameBorder="0" src="https://www.mgtv.com/l/100017744/4255321.html" scrolling="no" style="position: absolute; left: 0;"></iframe>
+  <iframe id="myframe" width="100%" height="100%" frameBorder="0" src="https://www.mgtv.com/l/100017744/4255258.html" scrolling="no" style="position: absolute; left: 0;"></iframe>
   <div class="background"></div>
   <div id="info">
     <div class="content">
       <span>正在播放：</span>
-      <span id="key">胡一天cut：现场跟“新女友”还原《小美好》</span>
+      <span id="key">44</span>
     </div>
     <div class="setInt">
       <span>每隔<input id="time" type="text" value="3" />秒跳转到下一个视频</span>
@@ -206,6 +206,7 @@
       }];
 
       var timer;
+      refresh();
       function refresh () {
         var i = 0;
         timer = setInterval(function () {
