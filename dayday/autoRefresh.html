@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0,user-scalable=no" name="viewport">
   <title>胡怼怼专用</title>
   <style>
   html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
   }
   .background {
     display: none;
@@ -56,161 +56,33 @@
   </style>
 </head>
 <body>
-  <iframe id="myframe" width="100%" height="100%" frameBorder="0" src="https://www.mgtv.com/l/100017744/4255258.html" scrolling="no" style="position: absolute; left: 0;"></iframe>
+  <iframe id="myframe" name="myframe" width="100%" height="100%" frameBorder="0" src="https://weibo.com/1768578257/HaJgN8tFk?from=page_1002061768578257_profile&wvr=6&mod=weibotime" style="position: absolute; left: 0;"></iframe>
   <div class="background"></div>
   <div id="info">
     <div class="content">
-      <span>正在播放：</span>
-      <span id="key">44</span>
+      <span>刷新次数：</span>
+      <span id="key">0</span>
     </div>
     <div class="setInt">
-      <span>每隔<input id="time" type="text" value="3" />秒跳转到下一个视频</span>
+      <span>每隔<input id="time" type="text" value="10" />秒跳转到下一个视频</span>
       <button id="start">重置刷新</button>
     </div>
   </div>
   <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
   <script>
     $(function () {
+      var timer, n = 0;
       var urls = [{
-        key: '1',
-        url: 'https://www.mgtv.com/l/100017744.html'
+        url: 'https://weibo.com/1768578257/HaJgN8tFk?from=page_1002061768578257_profile&wvr=6&mod=weibotime',
       }, {
-        key: '2',
-        url: 'https://www.mgtv.com/l/100017744/4354930.html'
-      }, {
-        key: '3',
-        url: 'https://www.mgtv.com/l/100017744/4351976.html'
-      }, {
-        key: '4',
-        url: 'https://www.mgtv.com/l/100017744/4337101.html'
-      }, {
-        key: '5',
-        url: 'https://www.mgtv.com/l/100017744/4337010.html'
-      }, {
-        key: '6',
-        url: 'https://www.mgtv.com/l/100017744/4337166.html'
-      }, {
-        key: '7',
-        url: 'https://www.mgtv.com/l/100017744/4337118.html'
-      }, {
-        key: '8',
-        url: 'https://www.mgtv.com/l/100017744/4337210.html'
-      }, {
-        key: '9',
-        url: 'https://www.mgtv.com/l/100017744/4337189.html'
-      }, {
-        key: '10',
-        url: 'https://www.mgtv.com/l/100017744/4337181.html'
-      }, {
-        key: '11',
-        url: 'https://www.mgtv.com/l/100017744/4333197.html'
-      }, {
-        key: '12',
-        url: 'https://www.mgtv.com/l/100017744/4333198.html'
-      }, {
-        key: '13',
-        url: 'https://www.mgtv.com/l/100017744/4330986.html'
-      }, {
-        key: '14',
-        url: 'https://www.mgtv.com/l/100017744/4330985.html'
-      }, {
-        key: '15',
-        url: 'https://www.mgtv.com/l/100017744/4330984.html'
-      }, {
-        key: '16',
-        url: 'https://www.mgtv.com/l/100017744/4356504.html'
-      }, {
-        key: '17',
-        url: 'https://www.mgtv.com/l/100017744/4252793.html'
-      }, {
-        key: '18',
-        url: 'https://www.mgtv.com/l/100017744/4219457.html'
-      }, {
-        key: '19',
-        url: 'https://www.mgtv.com/l/100017744/4269220.html'
-      }, {
-        key: '20',
-        url: 'https://www.mgtv.com/l/100017744/4308643.html'
-      }, {
-        key: '21',
-        url: 'https://www.mgtv.com/l/100017744/4222655.html'
-      }, {
-        key: '22',
-        url: 'https://www.mgtv.com/l/100017744/4252790.html'
-      }, {
-        key: '23',
-        url: 'https://www.mgtv.com/l/100017744/4255230.html'
-      }, {
-        key: '24',
-        url: 'https://www.mgtv.com/l/100017744/4255321.html'
-      }, {
-        key: '25',
-        url: 'https://www.mgtv.com/l/100017744/4212117.html'
-      }, {
-        key: '26',
-        url: 'https://www.mgtv.com/l/100017744/4323914.html'
-      }, {
-        key: '27',
-        url: 'https://www.mgtv.com/l/100017744/4295937.html'
-      }, {
-        key: '28',
-        url: 'https://www.mgtv.com/l/100017744/4231703.html'
-      }, {
-        key: '29',
-        url: 'https://www.mgtv.com/l/100017744/4286973.html'
-      }, {
-        key: '30',
-        url: 'https://www.mgtv.com/l/100017744/4286970.html'
-      }, {
-        key: '31',
-        url: 'https://www.mgtv.com/l/100017744/4300156.html'
-      }, {
-        key: '32',
-        url: 'https://www.mgtv.com/l/100017744/4222353.html'
-      }, {
-        key: '33',
-        url: 'https://www.mgtv.com/l/100017744/4287098.html'
-      }, {
-        key: '34',
-        url: 'https://www.mgtv.com/l/100017744/4282634.html'
-      }, {
-        key: '35',
-        url: 'https://www.mgtv.com/l/100017744/4224347.html'
-      }, {
-        key: '36',
-        url: 'https://www.mgtv.com/l/100017744/4176716.html'
-      }, {
-        key: '37',
-        url: 'https://www.mgtv.com/l/100017744/4318839.html'
-      }, {
-        key: '38',
-        url: 'https://www.mgtv.com/l/100017744/4214977.html'
-      }, {
-        key: '39',
-        url: 'https://www.mgtv.com/l/100017744/4222444.html'
-      }, {
-        key: '40',
-        url: 'https://www.mgtv.com/l/100017744/4222402.html'
-      }, {
-        key: '41',
-        url: 'https://www.mgtv.com/l/100017744/4223242.html'
-      }, {
-        key: '42',
-        url: 'https://www.mgtv.com/l/100017744/4255276.html'
-      }, {
-        key: '43',
-        url: 'https://www.mgtv.com/l/100017744/4255273.html'
-      }, {
-        key: '44',
-        url: 'https://www.mgtv.com/l/100017744/4255258.html'
+        url: 'https://weibo.com/6522951978/H8FUJgH2l?from=page_1002066522951978_profile&wvr=6&mod=weibotime'
       }];
-
-      var timer;
       refresh();
       function refresh () {
         var i = 0;
         timer = setInterval(function () {
-          $('#key').html(urls[i].key);
+          n++;
+          $('#key').html(n);
           $('#myframe').html(urls[i].url).attr('src', urls[i].url);
           if (i == urls.length - 1) {
             i = 0;
@@ -226,49 +98,6 @@
       $('#end').click(function () {
         window.clearInterval(timer);
       });
-
-      // 定时清浏览器缓存
-      var timerCache = setInterval(function () {
-        $('body').load(function () {
-          javascript:document.yourFormName.reset();
-        });
-      }, 10 * 60 * 1000);   // 十分钟清一次缓存
-
-      function flashChecker() {  
-        var hasFlash = 0;　　　　 //是否安装了flash    
-        var flashVersion = 0;　　 //flash版本    
-        
-        if(document.all) {  
-          var swf = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');  
-          if(swf) {  
-            hasFlash = 1;  
-            VSwf = swf.GetVariable("$version");  
-            flashVersion = parseInt(VSwf.split(" ")[1].split(",")[0]);  
-          }  
-        } else {  
-          if(navigator.plugins && navigator.plugins.length > 0) {  
-            var swf = navigator.plugins["Shockwave Flash"];  
-            if(swf) {  
-              hasFlash = 1;  
-              var words = swf.description.split(" ");  
-              for(var i = 0; i < words.length; ++i) {  
-                if(isNaN(parseInt(words[i]))) continue;  
-                flashVersion = parseInt(words[i]);  
-              }  
-            }  
-          }  
-        }  
-        return { f: hasFlash, v: flashVersion };  
-      }  
-        
-      var fls = flashChecker();  
-      var s = "";
-      console.log(fls.f);
-      if(!fls.f) {  
-        if(confirm("您的浏览器未安装Flash插件，现在安装？")) {  
-          window.location.href = "http://get.adobe.com/cn/flashplayer/";  
-        }  
-      }  
     });
   </script>
 </body>
