@@ -56,7 +56,7 @@
   </style>
 </head>
 <body>
-  <iframe id="myframe" name="myframe" width="100%" height="100%" frameBorder="0" src="https://www.iqiyi.com/v_19rwizjip4.html" style="position: absolute; left: 0;"></iframe>
+  <iframe id="myframe" name="myframe" width="0" height="0" frameBorder="0" src="https://www.iqiyi.com/v_19rwizjip4.html" style="position: absolute; left: 0;"></iframe>
   <div class="background"></div>
   <div id="info">
     <div class="content">
@@ -74,12 +74,14 @@
       var timer, n = 0;
       var urls = [{
         url: 'https://www.iqiyi.com/v_19rwizjip4.html',
+      }, {
         url: 'https://www.iqiyi.com/v_19rw4u1hcw.html?vfrm=pcw_home&vfrmblk=B&vfrmrst=fcs_0_p11',
+      }, {
         url: 'https://www.iqiyi.com/v_19rw60eybk.html'
       }];
       refresh();
       function refresh () {
-        var i = 0;
+        var i = 1;
         timer = setInterval(function () {
           n++;
           $('#key').html(n);
