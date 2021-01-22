@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0,user-scalable=no" name="viewport">
+  <title>胡怼怼专用 BY Robot</title>
+  <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  .background {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+  }
+  #info {
+    position: absolute;
+    width: 1000px;
+    height: 100px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    color: #333;
+    background: #fff;
+    opacity: 1;
+    border-radius: 10px;
+    padding: 20px;
+    /*box-shadow: 0px 0px 50px #f2f2f2;*/
+  }
+  .setInt, .content {
+    line-height: 50px;
+  }
+  input {
+    border-radius: 3px;
+    width: 100px;
+    height: 28px;
+    border: 1px solid #cecece;
+    padding: 0 10px;
+    margin: 0 10px;
+  }
+  button {
+    border-radius: 15px;
+    background: #333;
+    width: 80px;
+    line-height: 30px;
+    border: 0;
+    color: #fff;
+    margin-left: 10px;
+  }
+  </style>
+</head>
+<body>
+  <iframe id="myframe" name="myframe" width="100%" height="100%" frameBorder="0" src="https://w.mgtv.com/l/100036315.html?t=videoshare&tc=imXtpYQGmKp4&f=wb&dc=6710ec1c-6b4f-4839-97d7-2ced3d52b0b9" style="position: absolute; left: 0;"></iframe>
+  <div class="background"></div>
+  <div id="info">
+    <div class="content">
+      <span>刷新次数：</span>
+      <span id="key">0</span>
+    </div>
+    <div class="setInt">
+      <span>每隔<input id="time" type="text" value="60" />秒跳转到下一个视频(有广告请自己设置时长)</span>
+      <button id="start">重置刷新</button>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      var timer, n = 0;
+      var urls = [{
+        url: 'https://w.mgtv.com/l/100036315.html?t=videoshare&tc=imXtpYQGmKp4&f=wb&dc=6710ec1c-6b4f-4839-97d7-2ced3d52b0b9'
+      }, {
+        url: 'https://w.mgtv.com/l/100036315/10947439.html'
+      }, {
+        url: 'https://w.mgtv.com/l/100036315/10947442.html'
+      }, {
+        url: 'https://w.mgtv.com/l/100036315/10947447.html'
+      }];
+      refresh();
+      function refresh () {
+        var i = 1;
+        timer = setInterval(function () {
+          n++;
+          $('#key').html(n);
+          $('#myframe').html(urls[i].url).attr('src', urls[i].url);
+          if (i == urls.length - 1) {
+            i = 0;
+          } else {
+            i++;
+          }
+        }, Number($('#time').val()) * 1000);
+      }
+      $('#start').click(function () {
+        window.clearInterval(timer);
+        refresh ();
+      });
+      $('#end').click(function () {
+        window.clearInterval(timer);
+      });
+    });
+  </script>
+</body>
+</html>
