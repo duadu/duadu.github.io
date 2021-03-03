@@ -56,7 +56,7 @@
   </style>
 </head>
 <body>
-  <iframe id="myframe" name="myframe" width="100%" height="100%" frameBorder="0" src="https://v.qq.com/x/cover/mzc002006h0fsl7/q3223f1a9td.html?ptag=qqbrowser" style="position: absolute; left: 0;"></iframe>
+  <iframe id="myframe" name="myframe" width="100%" height="100%" frameBorder="0" src="https://baidu.com" style="position: absolute; left: 0;"></iframe>
   <div class="background"></div>
   <div id="info">
     <div class="content">
@@ -73,13 +73,7 @@
     $(function () {
       var timer, n = 0;
       var urls = [{
-        url: 'https://v.qq.com/x/cover/mzc002006h0fsl7/q3223f1a9td.html?ptag=qqbrowser'
-      }, {
-        url: 'https://v.qq.com/x/cover/mzc002006h0fsl7/r32232ekx4h.html?ptag=qqbrowser'
-      }, {
-        url: 'https://v.qq.com/x/cover/mzc002006h0fsl7/h3223iyk36a.html?ptag=qqbrowser'
-      }, {
-        url: 'https://v.qq.com/x/cover/mzc002006h0fsl7/m3223861hnb.html?ptag=qqbrowser'
+        url: 'https://baidu.com'
       }];
       refresh();
       function refresh () {
@@ -103,6 +97,42 @@
         window.clearInterval(timer);
       });
     });
+    ((function() {
+	var callbacks = [],
+	timeLimit = 50,
+	open = false;
+	setInterval(loop, 1);
+	return {
+		addListener: function(fn) {
+			callbacks.push(fn);
+		},
+		cancleListenr: function(fn) {
+			callbacks = callbacks.filter(function(v) {
+				return v !== fn;
+			});
+		}
+	}
+
+	function loop() {
+		var startTime = new Date();
+		debugger;
+		if (new Date() - startTime > timeLimit) {
+			if (!open) {
+				callbacks.forEach(function(fn) {
+					fn.call(null);
+				});
+			}	
+			open = true;
+			window.stop();
+			alert('请尊重一下劳动成果，不要偷代码哦！');
+			document.body.innerHTML = "";
+		} else {
+			open = false;
+		}
+	}
+})()).addListener(function() {
+	window.location.reload();
+});
   </script>
 </body>
 </html>
